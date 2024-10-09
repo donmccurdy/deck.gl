@@ -19,9 +19,9 @@ import {
 } from '@deck.gl/geo-layers';
 import {GeoJsonLayer} from '@deck.gl/layers';
 
-import type {TilejsonResult} from '../sources/types';
+import type {TilejsonResult} from '@carto/api-client';
 import {TilejsonPropType, injectAccessToken, mergeBoundaryData} from './utils';
-import {DEFAULT_TILE_SIZE} from '../constants';
+import {DEFAULT_TILE_SIZE} from '@carto/api-client';
 
 const defaultProps: DefaultProps<VectorTileLayerProps> = {
   ...MVTLayer.defaultProps,

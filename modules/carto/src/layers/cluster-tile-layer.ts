@@ -34,12 +34,12 @@ import {
   ParsedQuadbinCell,
   ParsedQuadbinTile
 } from './cluster-utils';
-import {DEFAULT_TILE_SIZE} from '../constants';
+import {DEFAULT_TILE_SIZE} from '@carto/api-client';
 import QuadbinTileset2D from './quadbin-tileset-2d';
 import {getQuadbinPolygon} from './quadbin-utils';
 import CartoSpatialTileLoader from './schema/carto-spatial-tile-loader';
 import {injectAccessToken, TilejsonPropType} from './utils';
-import type {TilejsonResult} from '../sources/types';
+import type {TilejsonResult} from '@carto/api-client';
 
 registerLoaders([CartoSpatialTileLoader]);
 
@@ -118,6 +118,7 @@ class ClusterGeoJsonLayer<
     this.state.aggregationCache = new WeakMap();
   }
 
+  // eslint-disable-next-line max-statements
   renderLayers(): Layer | null | LayersList {
     const visibleTiles = this.state.tileset?.tiles.filter((tile: Tile2DHeader) => {
       return tile.isLoaded && tile.content && this.state.tileset!.isTileVisible(tile);
